@@ -3,16 +3,11 @@
 #include "Managers/EventMan.hpp"
 #include <iostream>
 
-using namespace std;
-using namespace sf;
-
 /*
 
  * TODO:
- * Stoping Sorting
- * Radix Sort
- * Shell Sort
  * Sounds
+ * CMake
 
 */
 
@@ -27,10 +22,10 @@ using namespace sf;
  * [ ] - Stop Sorting
 */
 
-const int NCOL = 400;
+const int NCOL = 200;
 
 int main () {
-    sf::RenderWindow app (sf::VideoMode(1600, 900), "Sorting");
+    sf::RenderWindow app (sf::VideoMode(800, 600), "Sorting");
     EventManager ev (&app);
     Columns columns (NCOL, &app, &ev);
     

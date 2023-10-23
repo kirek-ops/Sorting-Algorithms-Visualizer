@@ -48,5 +48,6 @@ void RadixSort::sort_digit (int digit) {
 
     for (int i = 0; i < N; ++i) {
         columns->set_height(i, temp[i]);
+        columns->highlight(i);
     }
 }   

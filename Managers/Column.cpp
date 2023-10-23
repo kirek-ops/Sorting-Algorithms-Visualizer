@@ -5,13 +5,14 @@
 #include "../SortingAlgorithms/merge.hpp"
 #include "../SortingAlgorithms/quick.hpp"
 #include "../SortingAlgorithms/radix.hpp"
+#include "../SortingAlgorithms/shell.hpp"
 
 using namespace std;
 
 void Columns::create () {
     srand(time(0));
     for (int i = 0; i < NCOL; ++i) {
-        heights.push_back(rand() % 880 + 10);
+        heights.push_back(rand() % (window->getSize().y - 11) + 10);
         colors.push_back(sf::Color::White);
     }
 }
@@ -34,12 +35,12 @@ void Columns::render () {
     for (int i = 0; i < NCOL; ++i) {
         double x = width * i;
         sf::RectangleShape elem (sf::Vector2f(width, heights[i]));
-        elem.setPosition(x, 900 - heights[i]);
+        elem.setPosition(x, window->getSize().y - heights[i]);
         elem.setFillColor(colors[i]);
         window->draw(elem);
+        sf::sleep(sf::milliseconds(0.007));
     }
     window->display();
-    sf::sleep(sf::milliseconds(4));
 }
 
 void Columns::shuffle () {
@@ -100,6 +101,10 @@ void Columns::sort (int algo) {
     }
     else if (algo == 3) {
         RadixSort srt (this);
+        srt.sort();
+    }
+    else if (algo == 4) {
+        ShellSort srt (this);
         srt.sort();
     }
 }
