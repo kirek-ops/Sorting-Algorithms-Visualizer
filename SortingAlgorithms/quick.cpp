@@ -1,9 +1,9 @@
 #include "quick.hpp"
-#include <iostream>
+
 using namespace std;
 
 QuickSort::QuickSort (Columns *columns) {
-    this -> columns = columns;
+    this->columns = columns;
 }
 
 void QuickSort::sort() {
@@ -19,15 +19,15 @@ void QuickSort::_sort (int l, int r) {
 }
 
 int QuickSort::partition (int l, int r) {
-    int el = columns -> height_nth(r);
+    int el = columns->height_nth(r);
     int i = l - 1;
     for (int j = l; j < r; ++j) {
-        int x = columns -> height_nth(j);
+        int x = columns->height_nth(j);
         if (x < el) {
             ++i;
-            columns -> swap(i, j);
+            columns->swap(i, j);
         }
     }
-    columns -> swap(i + 1, r);
+    columns->swap(i + 1, r);
     return i + 1;
 }

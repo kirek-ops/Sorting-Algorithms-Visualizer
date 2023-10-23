@@ -1,7 +1,7 @@
 #include "EventMan.hpp"
 
 EventManager::EventManager (sf::RenderWindow *window) {
-    this -> window = window;
+    this->window = window;
 }
 
 void EventManager::update () {

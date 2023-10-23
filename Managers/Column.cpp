@@ -4,8 +4,8 @@
 #include "../SortingAlgorithms/bubble.hpp"
 #include "../SortingAlgorithms/merge.hpp"
 #include "../SortingAlgorithms/quick.hpp"
+#include "../SortingAlgorithms/radix.hpp"
 
-#include <iostream>
 using namespace std;
 
 void Columns::create () {
@@ -17,15 +17,15 @@ void Columns::create () {
 }
 
 Columns::Columns () {
-    this -> NCOL = 100;
+    this->NCOL = 100;
     create();
 }
 
 Columns::Columns (int _NCOL, sf::RenderWindow *window, EventManager *ev) {
-    this -> NCOL = _NCOL;
-    this -> window = window;
-    this -> ev = ev;
-    this -> width = window->getSize().x / NCOL;
+    this->NCOL = _NCOL;
+    this->window = window;
+    this->ev = ev;
+    this->width = window->getSize().x / NCOL;
     create();
 }
 
@@ -39,6 +39,7 @@ void Columns::render () {
         window->draw(elem);
     }
     window->display();
+    sf::sleep(sf::milliseconds(4));
 }
 
 void Columns::shuffle () {
@@ -57,7 +58,7 @@ void Columns::highlight (int pos) {
     sf::Color temp = colors[pos];
     colors[pos] = sf::Color::Green;
     render();
-    ev -> update();
+    ev->update();
     colors[pos] = temp;
 }
 
@@ -66,7 +67,7 @@ void Columns::highlight (int i, int j) {
     colors[i] = sf::Color::Green;
     colors[i] = sf::Color::Green;
     render();
-    ev -> update();
+    ev->update();
     colors[i] = temp;
     colors[j] = tempp;
 }
@@ -77,7 +78,7 @@ void Columns::swap (int posi, int posj) {
     colors[posi] = colors[posj];
     colors[posj] = buc;
     render();
-    ev -> update();
+    ev->update();
 }
 
 std::vector <int> Columns::get_hei () {
@@ -94,7 +95,11 @@ void Columns::sort (int algo) {
         srt.sort();
     }
     else if (algo == 2) {
-        MergeSort srt (this);
+        QuickSort srt (this);
+        srt.sort();
+    }
+    else if (algo == 3) {
+        RadixSort srt (this);
         srt.sort();
     }
 }

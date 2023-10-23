@@ -67,6 +67,14 @@ int main () {
                         app.setTitle("Radix Sort");
                         columns.sort(3);
                         break;
+                    
+                    case sf::Keyboard::F:
+                        app.setTitle("Shell Sort");
+                        columns.sort(4);
+                        break;
+
+                    default: 
+                        break;
                 }
             }
         }
