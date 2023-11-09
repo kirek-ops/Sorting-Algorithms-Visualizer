@@ -6,7 +6,6 @@
 /*
 
  * TODO:
- * Sounds
  * CMake
 
 */
@@ -25,6 +24,8 @@
 const int NCOL = 200;
 
 int main () {
+
+    /// Managers and App
     sf::RenderWindow app (sf::VideoMode(800, 600), "Sorting");
     EventManager ev (&app);
     Columns columns (NCOL, &app, &ev);
@@ -36,8 +37,9 @@ int main () {
             if (event.type == sf::Event::Closed) {
                 app.close();
             }
-            else if (event.type == sf::Event::KeyPressed) {
-                switch (event.key.code) {
+            else if (event.type == sf::Event::KeyPressed) { 
+                /// BUTTON CASE PROCESSER
+                switch (event.key.code) { 
                     case sf::Keyboard::S: 
                         app.setTitle("Shuffled");
                         columns.shuffle();   
@@ -73,7 +75,9 @@ int main () {
                 }
             }
         }
-        columns.render();
+
+        /// RERENDERING WINDOW
+        columns.render();  
     }
     return 0;
 }

@@ -1,5 +1,7 @@
 #include "merge.hpp"
 
+/// Merge Sort Implementation
+
 using namespace std;
 
 MergeSort::MergeSort (Columns *columns) {

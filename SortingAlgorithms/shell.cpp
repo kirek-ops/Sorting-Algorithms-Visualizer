@@ -1,5 +1,7 @@
 #include "shell.hpp"
 
+/// Shell's Sort Implementation
+
 using namespace std;
 
 ShellSort::ShellSort (Columns *columns) {

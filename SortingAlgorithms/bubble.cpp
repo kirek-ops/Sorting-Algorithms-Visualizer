@@ -1,5 +1,7 @@
 #include "bubble.hpp"
 
+/// Bubble Sort Implementation
+
 using namespace std;
 
 BubbleSort::BubbleSort (Columns *columns) {

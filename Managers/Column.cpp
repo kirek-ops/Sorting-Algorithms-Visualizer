@@ -9,6 +9,7 @@
 
 using namespace std;
 
+/// ASSIGN RANDOM VALUES HEIGHTS OF COLUMNS
 void Columns::create () {
     srand(time(0));
     for (int i = 0; i < NCOL; ++i) {
@@ -30,6 +31,7 @@ Columns::Columns (int _NCOL, sf::RenderWindow *window, EventManager *ev) {
     create();
 }
 
+/// RENDERING OF WINDOW
 void Columns::render () {
     window->clear(sf::Color::Black);
     for (int i = 0; i < NCOL; ++i) {
@@ -86,6 +88,7 @@ std::vector <int> Columns::get_hei () {
     return heights;
 }
 
+/// CHOOSING SORT ALGO
 void Columns::sort (int algo) {
     if (algo == 0) {
         BubbleSort srt (this);

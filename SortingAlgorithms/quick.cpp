@@ -1,5 +1,7 @@
 #include "quick.hpp"
 
+/// Quick Sort Implementation
+
 using namespace std;
 
 QuickSort::QuickSort (Columns *columns) {
